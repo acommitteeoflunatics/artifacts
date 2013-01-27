@@ -2,7 +2,7 @@
 A collection of miscellaneous tools for working with CouchDB instances.
 
 ## Long Description ##
-'koWch' is a collection of utilities intended to be useful with both the Changes API [_changes] and the Externals API [OS Daemons] in newer versions of CouchDB.
+'kouch-mailer' is a collection of utilities intended to be useful with both the Changes API [_changes] and the Externals API [OS Daemons] in newer versions of CouchDB.
 
 ## Copyright & License ##
 &copy; 2012, [a Committee of Lunatics][acol], hereafter referred to as 'aCoL'

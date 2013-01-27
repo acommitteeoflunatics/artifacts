@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2012 Jerry W Jackson
+# Copyright (C) 2012-2013 Jerry W Jackson, All rights reserved.
 # All rights reserved.
 #
 # This software is licensed under the BSD license.
 
-""" 'koWch' is a collection of useful classes for manipulating
+""" 'kouch-mailer' is a collection of useful classes for manipulating
 	couchdb's new _changes and _externals features. """
 
 from couchdb import Server, Session
@@ -37,13 +37,17 @@ class CouchListener:
 		self.server = server
 		self.auth = auth
 		self.db = db
-	def create_listener():
+	""" Create a new listener """
+	def create(listener, feedtype):
 		pass
-	def destroy_listener():
+	""" Destroy an existing listener """
+	def destroy(listener, feedtype):
 		pass
-	def listen():
+	""" Listen to a feed """
+	def listen(feed, feedtype):
 		pass
-	def ignore():
+	""" Ignore the feed """
+	def ignore(feed, feedtype, duration):
 		pass
 	
 class ChangesListener(CouchListener):
@@ -109,7 +113,7 @@ def main(argv):
 		print "Starting Changes Listener..."
 	else:
 		# improper number of parameters
-		sys.stderr.write("Usage: 'koWch <server url> <auth> <db> \
+		sys.stderr.write("Usage: 'kouch-mailer <server url> <auth> <db> \
 		<external command> <options to command as string>' or 'koWch \
 		<server url> <auth> <db> <parameters to changes listener>'")
 		return 1
