@@ -2,9 +2,11 @@
 A collection of miscellaneous tools for working with CouchDB instances.
 
 ## Long Description ##
-`kouchmailer` /kouCH-ˈmālər/ -This  CouchDB utility library is a collection of 
-utilities intended to be useful with both the Changes API [_changes] and 
-the Externals API [OS Daemons] in newer versions of CouchDB.
+`kouchmailer` /kouCH-ˈmālər/ -This CouchDB utility library will eventually
+be a collection of utilities intended to be useful with both the Changes API 
+[_changes] and the Externals API [OS Daemons] in newer versions of CouchDB.
+
+Currently it has most of the functionailty to watch the _changes feed of a db named 
 
 ## Copyright & License ##
 (c) 2012-2013, Jerry W Jackson
@@ -36,6 +38,4 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-[t9]: http://t9productions.com
-[acol]: http://schade.github.com/index.html
 [bsd3]: http://en.wikipedia.org/wiki/BSD_licenses#3-clause_license_.28.22New_BSD_License.22_or_.22Modified_BSD_License.22.29
