@@ -114,7 +114,7 @@ def main(argv):
 	else:
 		# improper number of parameters
 		sys.stderr.write("Usage: 'kouch-mailer <server url> <auth> <db> \
-		<external command> <options to command as string>' or 'koWch \
+		<external command> <options to command as string>' or 'kouch-mailer \
 		<server url> <auth> <db> <parameters to changes listener>'")
 		return 1
 	
