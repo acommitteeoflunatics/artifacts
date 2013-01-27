@@ -1,11 +1,13 @@
-# 'koWch' #
+# `kouch-mailer` #
 A collection of miscellaneous tools for working with CouchDB instances.
 
 ## Long Description ##
-'kouch-mailer' is a collection of utilities intended to be useful with both the Changes API [_changes] and the Externals API [OS Daemons] in newer versions of CouchDB.
+`kouchmailer` /kouCH-ˈmālər/ -This  CouchDB utility library is a collection of 
+utilities intended to be useful with both the Changes API [_changes] and 
+the Externals API [OS Daemons] in newer versions of CouchDB.
 
 ## Copyright & License ##
-&copy; 2012, [a Committee of Lunatics][acol], hereafter referred to as 'aCoL'
+(c) 2012-2013, Jerry W Jackson
 
 Licensed under the [new BSD License][bsd3] (the "License");
 
@@ -19,8 +21,8 @@ modification, are permitted provided that the following conditions are met:
 *    Redistributions in binary form must reproduce the above copyright
      notice, this list of conditions and the following disclaimer in the
      documentation and/or other materials provided with the distribution.
-*    Neither the name of the organization (aCoL) nor the
-     names of its contributors may be used to endorse or promote products
+*    Neither the name of Jerry W Jackson nor the
+     names of his contributors may be used to endorse or promote products
      derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
