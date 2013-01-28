@@ -15,6 +15,8 @@ from time import localtime, strftime
 import datetime
 import json as json
 import sys
+import argparse
+import argparse_parent_with_group
 
 exts = {}
 chgs = {}
@@ -76,8 +78,8 @@ class ExternalListener(CouchListener):
 	CouchListener class would accept.  """
 	def __init__(self, command, arguments):
 		self.data = []
-		self.cmd = command
-		self.args = arguments
+		self.cmd = ext_cmd
+		self.args = params
 
 class MailSpooler:
 	""" docstring goes here """
@@ -94,7 +96,42 @@ class CouchDocParser:
 	def __init__(self, doc):
 		self.data = []
 
-def main(argv):
+def main():
+import argparse
+
+description='Versatile CouchDB Feed Consumer'
+usage='%(prog)s <server> <username> <password> <database> [ chgs | exts ] [ <ext_cmd> <params> | <params> ]'
+
+parent_parser = argparse.ArgumentParser(add_help=False)
+parent_parser.add_argument('server', action='store',nargs=1, 
+	help='server url to connect to your couch (default: %(default)s', 
+	default='http://localhost:5984')
+group = parent_parser.add_argument_group('authentication')
+group.add_argument('username', action="store", nargs=1, help='user to authorize')
+group.add_argument('password', action="store", nargs=1, help='password for user')
+parent_parser.add_argument('database', action='store',nargs=1, default='mailspool',
+	help='database to load from (default: %(default)s)')
+
+group = parent_parser.add_mutually_exclusive_group()
+group.add_argument("-v", "--verbose", action="store_true")
+group.add_argument("-q", "--quiet", action="store_true")
+
+parser = argparse.ArgumentParser(parents=[parent_parser])
+subparsers = parser.add_subparsers(help='sub-command help')
+
+parser_chgs = subparsers.add_parser('feed', parents=[parent_parser],
+	help="selects the _changes feed")
+
+parser_exts = subparsers.add_parser('feedt', parents=[parent_parser],
+	help="selects the _externals feed")
+parser_exts.add-argument( 'ext_cmd', action='store', nargs=1, 
+	help="command to be run on feed changes")
+parser_exts.add-argument( 'params', action='store', nargs=argparse.REMAINDER,
+	help="options for external command")
+
+args = parser.parse_args('http://localhost:5984', 'schade', 'testing', 'db_test', 'chgs')
+print args
+	
 	global exts, chgs
 	if len(argv) > 4:
 		# call exts
