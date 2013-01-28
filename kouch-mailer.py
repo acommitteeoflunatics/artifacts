@@ -16,7 +16,6 @@ import datetime
 import json as json
 import sys
 import argparse
-import argparse_parent_with_group
 
 exts = {}
 chgs = {}
@@ -24,12 +23,12 @@ filtername = ''
 heartbeat = ''
 include = ''
 
-class CouchListener:
+class CouchListener(server, auth, db):
 	""" CouchListener is intended to be subclassed (see both 
 	ChangesListener and ExternalsListener below) and may be used to 
 	instantiate many types of CouchDB connection. CouchListener can 
 	take the following as parameters: [
-		'param' {default value}
+		'-param-' {-default-value-}
 		'server' {"http://127.0.0.1:5984/"},
 		'auth' {auth.name="", auth.password=""},
 		'db' {none}
@@ -40,16 +39,16 @@ class CouchListener:
 		self.auth = auth
 		self.db = db
 	""" Create a new listener """
-	def create(listener, feedtype):
+	def create(listener, type):
 		pass
 	""" Destroy an existing listener """
-	def destroy(listener, feedtype):
+	def destroy(listener, type):
 		pass
 	""" Listen to a feed """
-	def listen(feed, feedtype):
+	def listen(feed, type):
 		pass
 	""" Ignore the feed """
-	def ignore(feed, feedtype, duration):
+	def ignore(feed, type, duration):
 		pass
 	
 class ChangesListener(CouchListener):
@@ -97,41 +96,6 @@ class CouchDocParser:
 		self.data = []
 
 def main():
-import argparse
-
-description='Versatile CouchDB Feed Consumer'
-usage='%(prog)s <server> <username> <password> <database> [ chgs | exts ] [ <ext_cmd> <params> | <params> ]'
-
-parent_parser = argparse.ArgumentParser(add_help=False)
-parent_parser.add_argument('server', action='store',nargs=1, 
-	help='server url to connect to your couch (default: %(default)s', 
-	default='http://localhost:5984')
-group = parent_parser.add_argument_group('authentication')
-group.add_argument('username', action="store", nargs=1, help='user to authorize')
-group.add_argument('password', action="store", nargs=1, help='password for user')
-parent_parser.add_argument('database', action='store',nargs=1, default='mailspool',
-	help='database to load from (default: %(default)s)')
-
-group = parent_parser.add_mutually_exclusive_group()
-group.add_argument("-v", "--verbose", action="store_true")
-group.add_argument("-q", "--quiet", action="store_true")
-
-parser = argparse.ArgumentParser(parents=[parent_parser])
-subparsers = parser.add_subparsers(help='sub-command help')
-
-parser_chgs = subparsers.add_parser('feed', parents=[parent_parser],
-	help="selects the _changes feed")
-
-parser_exts = subparsers.add_parser('feedt', parents=[parent_parser],
-	help="selects the _externals feed")
-parser_exts.add-argument( 'ext_cmd', action='store', nargs=1, 
-	help="command to be run on feed changes")
-parser_exts.add-argument( 'params', action='store', nargs=argparse.REMAINDER,
-	help="options for external command")
-
-args = parser.parse_args('http://localhost:5984', 'schade', 'testing', 'db_test', 'chgs')
-print args
-	
 	global exts, chgs
 	if len(argv) > 4:
 		# call exts
@@ -154,8 +118,50 @@ print args
 		<external command> <options to command as string>' or 'kouch-mailer \
 		<server url> <auth> <db> <parameters to changes listener>'")
 		return 1
-	
 
-if __name__=="__main__":
-	""" If script is called directly, fire off the 'main()' function. """
-	sys.exit(main(sys.argv))
+if __name__ == '__main__':
+	''' If script is called directly, parse through the arguments and build a connection 
+	    string. Once we're finished fire off the 'main()' function. '''
+	description='''Versatile CouchDB Feed Consumer'''
+	usage="%(prog)s [server] [database] [username] [password] {chgs,exts} {,ext_cmd} args"
+	parser = argparse.ArgumentParser(usage=usage, description=description, 
+		epilog=''' If you haven't noticed, username and password are positional; 
+			and ext_cmd is only to be used with the exts feed. ''')
+	group = parser.add_mutually_exclusive_group(required=False)
+	group.add_argument('-v', '--verbose', action="store_true")
+	group.add_argument('-q', '--quiet', action="store_true")
+	# we add the server and database items
+	parser.add_argument('server', action='store', nargs=1, default='http://localhost:5984',
+		help='server url to connect to your couch (default: %(default)s')
+	parser.add_argument('database', action='store', nargs=1, default='mailspool', 
+		help='database to load from (default: %(default)s)')
+	# we make an auth group and add the username and password to it
+	group = parser.add_argument_group('auth')
+	group.add_argument('username', action="store", nargs=1, 
+		help='Which user to authorize?')
+	group.add_argument('password', action="store", nargs=1, 
+		help='What is the password for this user?')
+	# we make a feed for the feed choices
+	subparsers = parser.add_subparsers(help='''Choose whether to use the _changes or the 
+		_external feed. Will be kept in results.type. ''')
+	# create the parser for choosing the feed to work on
+	parser_feed = subparsers.add_parser('feed')
+	parser_feed.add_argument('type', choices=['chgs', 'exts'], nargs='?', 
+		help='Choose a feed to work with.')
+	parser_args = subparsers.add_parser('args')
+	parser_args.add_argument('args', nargs=argparse.REMAINDER, 
+		help="Operation(s) to be performed on the chosen feed.")
+	print parser_feed
+	print parser_args
+	if ( parser_feed.type == 'exts' ):
+          print 'We are using the _externals feed.'
+          parser_args.add_argument('ext_cmd', action='store', nargs=1, 
+          	help="Command to be run when a feed changes.")
+          parser_args.add_argument('params', action='store', nargs=1, 
+          	help="Options to be used with external command.")
+        elif ( parser_feed.type == 'chgs' ):
+          print 'We are using the _changes feed.'
+        results = parser.parse_args()
+    # fire off main() with the results of our parsing
+    sys.exit(main(results))
+	
