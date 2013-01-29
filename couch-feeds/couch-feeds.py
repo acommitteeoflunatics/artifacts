@@ -6,7 +6,7 @@
 #
 # This software is licensed under the BSD license.
 
-""" 'kouch-mailer' is a collection of useful classes for manipulating
+""" 'couch-feeds' is a collection of useful classes for manipulating
 	couchdb's new _changes and _externals features. """
 
 from couchdb import Server, Session
@@ -115,8 +115,8 @@ def main():
 	# 	print "Starting Changes Listener..."
 	# else:
 	# 	# improper number of parameters
-	# 	sys.stderr.write("Usage: 'kouch-mailer <server url> <auth> <db> \
-	# 	<external command> <options to command as string>' or 'kouch-mailer \
+	# 	sys.stderr.write("Usage: 'couch-feeds <server url> <auth> <db> \
+	# 	<external command> <options to command as string>' or 'couch-feeds \
 	# 	<server url> <auth> <db> <parameters to changes listener>'")
 	# 	return 1
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
 	    string. Once we're finished fire off the 'main()' function. '''
 	# usage = "usage: %(prog)s FEED [-h] [-v] [-V] SERVER DATABASE USERNAME PASSWORD [EXTERNAL_CMD] [ARGS]"
 	description = '''Versatile CouchDB Feed Consumer'''
-	parser = argparse.ArgumentParser(prog='kouch-feeds', description=description, \
+	parser = argparse.ArgumentParser(prog='couch-feeds', description=description, \
 		epilog=''' EXTERNAL_CMD is only to be used with the externs FEED item. ''')
 	parser.add_argument('-v', '--verbose', action='count', help='increases verbosity and is also cumulative')
 	parser.add_argument('-V', '--version', action='version', version='%(prog)s 0.2')
