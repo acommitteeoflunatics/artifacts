@@ -1,5 +1,5 @@
 ## artifacts
-Artifacts are generally something you find when you're searching. These artifacts are things I found I wanted to do; but there was no available tool at the time; so, I rolled my own.
+Artifacts /ˈärtəˌfakts/ are generally something you find when you're searching. These artifacts are things I found I wanted to do; but there was no available tool at the time; so, I rolled my own.
 
 
 ### Current and future artifacts
