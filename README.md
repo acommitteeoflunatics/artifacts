@@ -23,5 +23,5 @@ Relax - these particular gubbins are of the CouchDB variety.
 -  couch-express /kouCH-ikˈspres/ - is an email send/receive gubbin; couch-feeds makes use of it in it's primary use case.
 -  couch-? /kouCH-?/ - give me a snazzy idea for the next couch-gubbin.
 
-## Other types of gubbins
+### Other types of gubbins
 Honestly, I haven't thought too hard about it...
