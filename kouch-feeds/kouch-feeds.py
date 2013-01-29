@@ -126,7 +126,7 @@ if __name__ == '__main__':
 	    string. Once we're finished fire off the 'main()' function. '''
 	# usage = "usage: %(prog)s FEED [-h] [-v] [-V] SERVER DATABASE USERNAME PASSWORD [EXTERNAL_CMD] [ARGS]"
 	description = '''Versatile CouchDB Feed Consumer'''
-	parser = argparse.ArgumentParser(prog='kouch-mailer', description=description, \
+	parser = argparse.ArgumentParser(prog='kouch-feeds', description=description, \
 		epilog=''' EXTERNAL_CMD is only to be used with the externs FEED item. ''')
 	parser.add_argument('-v', '--verbose', action='count', help='increases verbosity and is also cumulative')
 	parser.add_argument('-V', '--version', action='version', version='%(prog)s 0.2')
