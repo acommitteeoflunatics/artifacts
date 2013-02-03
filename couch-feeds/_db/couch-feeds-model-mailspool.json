@@ -1,0 +1,36 @@
+/* Use this DB model to create new emails to autosend to your chosen recipient. */
+/* */
+
+{
+   "_id": "",
+   "_rev": "",
+   "priority": null, /* required */
+   "sender": {
+       "Mailer Bot": "<email@address.com>" /* make yourself a throwaway gmail account like MailerBot@gmail.com */
+   },
+   "recipients": {
+       "cc": {
+           "Name": "<email@address.com>" /* optional; can be blank */
+       },
+       "to": {
+
+           "Name": "<email@address.com>" /* required */
+       },
+       "bcc": {
+
+           "Name": "<email@address.com>" /* optional; can be blank */
+       }
+   },
+   "collection": "mailspool", /* required */
+
+   "note": [], /*optional;   */
+   "state": "unsent", /* mailer sets this field to sent once email has been sent */
+   "msgformat": "text/plain", /* red; ehis should stay text/plain until others are made available */
+   "date": {
+       "sent": "Wed, 28 Nov 2012 14:40:42 CST", /* sent date filled in by mailer */
+       "created": "Tue Nov 13 2012 19:13:46 GMT-0600 (Central Standard Time)" /* creation date; needs this format */
+   },
+   "message": "<message body goes here>", /* required */
+   "notes": "<do you need a reminder of something about this email>", /* optional; can be blank */
+   "subject": "<put your email subject here>" /* required */
+}

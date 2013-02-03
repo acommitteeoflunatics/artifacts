@@ -1,0 +1,8 @@
+{
+   "_id": "_design/spooler",
+   "_rev": "",
+   "filters": {
+       "unsent": "function(doc, req) { if(doc.state == 'unsent') { return true; } else { return false; }}",
+       "sent": "function(doc, req) { if(doc.state == 'unsent') { return true; } else { return false; }}"
+   }
+}
