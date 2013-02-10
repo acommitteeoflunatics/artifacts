@@ -1,43 +1,93 @@
+@font-face {
+    font-family: 'SourceSansProRegular';
+    src: url('SourceSansPro-Regular-webfont.eot');
+    src: url('SourceSansPro-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SourceSansPro-Regular-webfont.woff') format('woff'),
+         url('SourceSansPro-Regular-webfont.ttf') format('truetype'),
+         url('SourceSansPro-Regular-webfont.svg#SourceSansProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotCourierSansRegular';
+    src: url('NotCourierSans-webfont.eot');
+    src: url('NotCourierSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('NotCourierSans-webfont.woff') format('woff'),
+         url('NotCourierSans-webfont.ttf') format('truetype'),
+         url('NotCourierSans-webfont.svg#NotCourierSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NotCourierSansBold';
+    src: url('NotCourierSans-Bold-webfont.eot');
+    src: url('NotCourierSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('NotCourierSans-Bold-webfont.woff') format('woff'),
+         url('NotCourierSans-Bold-webfont.ttf') format('truetype'),
+         url('NotCourierSans-Bold-webfont.svg#NotCourierSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
-  font-family:" Ubuntu", "Droid Sans", "Lucida Sans Unicode", sans-serif;
+  font-family:"NotCourierSansRegular", "Droid Sans", sans-serif;
   background: url(../images/bg-left-no-penguins.png) left top no-repeat,  url(../images/just-penguins.png) right top no-repeat;
   text-align:center;
   margin-right:7%;
   margin-left:7%;
 }
-div#outer {
-  width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 div#wrapper { 
   text-align: left; 
-  width: 100%; 
+  width: 900px; 
   margin-left: auto;
   margin-right: auto;
 }
-div#nav {
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  clear:both;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+#company {
+  color: #6495ED;
+  text-shadow: 2px 2px 4px #FF9912;
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  transform: scale(1.3);
+}
+#slogan {
+  color: #6495ED;
+  text-shadow: 2px 2px 4px #FF9912;
+}
+#primary {
+  height: 32px;
+  text-align:center;
+  padding-top: 13px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font: bold 15px "SourceSansProRegular", Ubuntu, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#primary ul li {
+  display: inline;
+  padding-left: 43px;
+}
+#primary li a {
+  padding: 5px 15px;
+  color: #6495ED;
+  text-shadow: 2px 2px 4px #FF9912;
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-radius-top-left: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-radius-bottom-right: 4px;
+}
+#primary li a:hover {
+  color: #1e90ff;
+  background: #212121;
 }
 div#details {
   text-align:center;
   margin-left: auto;
   margin-right: auto;
   }
-div.header {
-  font-size: 80%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border: none;
-  margin-left: auto;
-  margin-right: auto;
-}
 div.footer {
   font-size:80%;
   width: 100%; 
@@ -67,17 +117,23 @@ img#logo {
 }
 img#html5-logo {
   text-decoration:none;
+  float:left;
+  border:0 solid;
+  display: block;
+  margin-left: 45%;
+  margin-right: auto;
+  padding-right: 10px;
+  max-height: 32px;
+}
+img#css3-logo {
+  text-decoration:none;
+  float:right;
   border:0 solid;
   display: block;
   margin-left: auto;
-  margin-right: auto;
-  height: 32px;
-}
-img.centered {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-height: 32px;
+  margin-right: 45%;
+  padding-left: 10px;
+  max-height: 33px;
 }
 img.noborder {
   border: 0 none;
@@ -107,13 +163,14 @@ iframe {
   font-size:100%;
   text-align:left;
   width: 100%; 
-  
+}
 /* used to style a generic block of code */
 .code {
   margin-left:auto;
   margin-right:auto;
   width:80%;
-  font:"monospace";
+  font-family:"monospace";
+  font-size:11px
   text-align:left
 }
 ul {

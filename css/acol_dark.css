@@ -4,14 +4,14 @@
 body {
   background-color:#000000;
   color:#c0c0c0; 
-  font-family:" Ubuntu", "Droid Sans", "Lucida Sans Unicode", sans-serif;
 }
 div#wrapper { 
   /*border: 1px solid #c0c0c0; */
 }
 div#nav {
   color:#c0c0c0;
-  /*border: 1px solid #c0c0c0; */
+  /*text-shadow: 2px 2px 7px #c0c0c0;
+  border: 1px solid #c0c0c0; */
 }
 div.header {
   color:#c0c0c0;
@@ -21,6 +21,7 @@ div.footer {
 }
 a {
   color:#1e90ff;
+  text-shadow: 2px 2px 7px #111;
   text-decoration:none;
   letter-spacing:1px;
 }
@@ -32,4 +33,14 @@ a#current {
 }
 a:hover {
   color:#a0522d;
+}
+img.shadow {
+  border: 0 none;
+  -moz-box-shadow: 3px 3px 4px #ccc;
+  -webkit-box-shadow: 3px 3px 4px #ccc;
+  box-shadow: 3px 3px 4px #ccc;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
 }
