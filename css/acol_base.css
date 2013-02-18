@@ -59,12 +59,12 @@ div#wrapper {
   margin-top: 7px;
   margin-bottom: 7px;
   font: bold 15px "SourceSansProRegular", Ubuntu, sans-serif;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 1px;
 }
 #primary ul li {
   display: inline;
-  padding-left: 10px;
+  padding-left: 4px;
 }
 #primary li a {
   padding: 5px 15px;
