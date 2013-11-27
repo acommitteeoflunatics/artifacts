@@ -15,4 +15,4 @@ Relax - these particular artifacts are of the CouchDB variety.
 I've put somethought into this and have two types of artifacts I'm planning on researching.
 -  first, I've been playing with heroku a lot recently; so I thought I might make a few heroku helpers for the things I do most.
 -  second, I've been looking for a reason to get back into the swing of nodejitsu.
--  third, maybe I should revisit couchbase-server and see if anything else would benefit fromthe 'artifact' way of doing things.
+-  third, maybe I should revisit couchbase-server and see if anything else would benefit from the 'artifact' way of doing things.
