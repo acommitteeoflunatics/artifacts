@@ -1,21 +1,18 @@
-## Gubbins
-
-### Uncyclopedia entry...
-`gubbins' /ˈgʌbɪnz/ - derived from the Latin gubbinulus - which is a term to loosely describe things or stuff. It's just things that don't really have that much of a purpose.
-
-For example:
-
--  God on his thoughts about Gubbins
-  -  “If I had a gubbins, I'd gubbins in the morning, I'd gubbins in the evening, all over this land”
--  Oscar Wilde on gubbins
-  -  “Gubbins? You can't handle the gubbins!”
--  Hamlet on gubbins
-  -  “To gubbins, or not to gubbins? That is the question...”
-~ 
-
-You see, gubbins as a whole are definitely not something to be trifled with. They could be anything. Even gubbins of mass destruction! That's right! Terrorists could be next door brewing gubbins right now! Even so, gubbins could be the food of the baby mernimbler, which would be the softer bits of clouds.
+## artifacts
+Artifacts /ˈärt&#601;ˌfakts/ are generally something you find when you're searching. These artifacts are things I found I wanted to do; but there was no available tool at the time; so, I rolled my own.
 
 
-Relax - these particular gubbin are of the CouchDB variety.
+### Current and future artifacts
+
+#### couch-artifacts 
+
+Relax - these particular artifacts are of the CouchDB variety.
 -  couch-feeds /kouCH-fēdʒ/ - is for accessing, listening to (or not, as the case may be), and the manipulating of either the _changes or the _externals feeds of CouchDB.
--  couch-? /kouCH-?/ - give me a snazzy idea for the next couch-gubbin.
+-  couch-express /kouCH-ikˈspres/ - is an email send/receive artifact; couch-feeds makes use of it in it's primary use case.
+-  couch-? /kouCH-?/ - give me a snazzy idea for the next couch-artifacts.
+
+### Other types of artifacts
+I've put somethought into this and have two types of artifacts I'm planning on researching.
+-  first, I've been playing with heroku a lot recently; so I thought I might make a few heroku helpers for the things I do most.
+-  second, I've been looking for a reason to get back into the swing of nodejitsu.
+-  third, maybe I should revisit couchbase-server and see if anything else would benefit from the 'artifact' way of doing things.
